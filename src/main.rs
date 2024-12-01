@@ -2,6 +2,7 @@ use bevy::{prelude::*, window::{Window, WindowPlugin, WindowResolution}};
 
 #[cfg(feature = "debug")]
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
+use board_plugin::BoardPlugin;
 
 fn main() {
     let mut app = App::new();
@@ -18,6 +19,8 @@ fn main() {
 
     #[cfg(feature = "debug")]
     app.add_plugins(WorldInspectorPlugin::new());
+
+    app.add_plugins(BoardPlugin);
 
     app.add_systems(Startup, camera_setup);
     app.run();
