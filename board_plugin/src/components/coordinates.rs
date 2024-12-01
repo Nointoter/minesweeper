@@ -2,10 +2,11 @@ use std::fmt::{self, Display, Formatter};
 use std::ops::{Add, Sub};
 use bevy::prelude::Component;
 
+#[cfg(feature = "debug")]
 use bevy_inspector_egui::{prelude::*, reflect_inspector};
 
 #[cfg_attr(feature = "debug", derive(InspectorOptions))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Component)] // lv - add derives on demand
 
 pub struct Coordinates {
     pub x: u16,
